@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <script>
+        function generatePassword() {
+            fetch('/generate')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("password").value = data.password;
+            });
+        }
+    </script>
+</head>
+<body>
+    <h2>Random Password Generator</h2>
+    <input type="text" id="password" readonly>
+    <button onclick="generatePassword()">Generate Password</button>
+</body>
+</html>
